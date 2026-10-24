@@ -1,4 +1,4 @@
-# Samator Cylinder Tracker
+# Gas Cylinder Tracker
 
 Internal web app for tracking the lifecycle of Samator gas cylinders
 (fill → deliver → return empty → refill / maintenance → retire), built for the
