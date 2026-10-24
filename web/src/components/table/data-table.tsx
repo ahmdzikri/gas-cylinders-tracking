@@ -99,21 +99,7 @@ export function DataTable<TData, TValue>({
   const [columnSizing, setColumnSizing] = React.useState<ColumnSizingState>(
     () => readSizing(columnSizingStorageKey)
   )
-  const [showSlowFetching, setShowSlowFetching] = React.useState(false)
-
-  React.useEffect(() => {
-    if (!isFetching || isLoading) {
-      setShowSlowFetching(false)
-      return
-    }
-
-    const timer = setTimeout(() => {
-      setShowSlowFetching(true)
-    }, 200)
-
-    return () => clearTimeout(timer)
-  }, [isFetching, isLoading])
-
+    
   React.useEffect(() => {
     if (!columnSizingStorageKey) return
     try {
@@ -200,12 +186,7 @@ export function DataTable<TData, TValue>({
         </DataTableToolbar>
       )}
       <div
-        className={cn(
-          "relative overflow-x-auto",
-          showSlowFetching &&
-            "pointer-events-none opacity-40 transition-opacity duration-200"
-        )}
-      >
+        className="relative overflow-x-auto">
         {/* Lebar tiap kolom ditetapkan lewat <colgroup> (table-fixed). Bila total lebih kecil
             dari kontainer, kolom pengisi kosong di akhir menyerap sisa ruang sehingga lebar
             hasil resize tetap persis (tidak diregangkan proporsional). Bila lebih besar,
