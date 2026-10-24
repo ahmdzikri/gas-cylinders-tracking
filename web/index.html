@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Samator Cylinder Tracker</title>
+    <meta
+      name="description"
+      content="Pencatatan dan pemantauan status tabung gas Samator."
+    />
+    <meta name="theme-color" content="#3b5f8a" />
+    <!-- Blocking script to prevent theme flash (FOUC). -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("samator-theme");
+          var d =
+            t === "dark"
+              ? "dark"
+              : t === "light"
+                ? "light"
+                : t === "system"
+                  ? window.matchMedia("(prefers-color-scheme: dark)").matches
+                    ? "dark"
+                    : "light"
+                  : "light";
+          document.documentElement.classList.add(d);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body class="min-h-screen flex flex-col bg-background text-foreground antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

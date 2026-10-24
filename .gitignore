@@ -1,0 +1,41 @@
+# --- Node / Bun ---
+node_modules/
+*.log
+
+# --- Frontend build ---
+web/dist/
+web/.vite/
+web/coverage/
+web/.tanstack/
+web/src/routeTree.gen.ts
+*.tsbuildinfo
+
+# --- .NET ---
+bin/
+obj/
+*.user
+.vs/
+TestResults/
+backend/**/wwwroot/
+
+# --- SQLite data ---
+data/
+*.db
+*.db-shm
+*.db-wal
+
+# --- Env ---
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# --- IDE / OS ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+web/tmp-test/
+
+# --- Evidence generator work dir ---
+tests/evidence/.work/

@@ -1,0 +1,104 @@
+{
+  "settings": {
+    "port": 5199,
+    "expectedTotal": 87,
+    "outputDir": "docs/test-evidence",
+    "chromePath": ""
+  },
+  "scenes": {
+    "listObrien": {
+      "type": "search",
+      "term": "o'brien",
+      "expected": 3,
+      "file": "app-list.png"
+    },
+    "noResults": {
+      "type": "noResults",
+      "term": "zzzz",
+      "file": "app-empty.png"
+    },
+    "error": {
+      "type": "error",
+      "file": "app-error.png"
+    },
+    "statusOptions": {
+      "type": "status",
+      "step": "options",
+      "status": "Filled",
+      "file": "app-status-options.png"
+    },
+    "statusConfirm": {
+      "type": "status",
+      "step": "confirm",
+      "status": "Filled",
+      "targetStatus": "Delivered",
+      "customer": "PT Contoh Penerima",
+      "file": "app-status-confirm.png"
+    }
+  },
+  "backend": [
+    {
+      "id": "backend-1-invalid-transitions",
+      "png": "backend-1-invalid-transitions.png",
+      "title": "Invalid status transitions return 400",
+      "filter": "FullyQualifiedName~InvalidTransition_Returns400_WithStatusError"
+    },
+    {
+      "id": "backend-2-duplicate-serial",
+      "png": "backend-2-duplicate-serial.png",
+      "title": "Serial differing only by case returns 409",
+      "filter": "FullyQualifiedName~Create_DuplicateDifferingOnlyByCase_Returns409"
+    },
+    {
+      "id": "backend-3-unicode-search",
+      "png": "backend-3-unicode-search.png",
+      "title": "Case-insensitive search on Unicode customer names (Café, Ünggul)",
+      "filter": "FullyQualifiedName~ListTests.Search_IsUnicodeCaseInsensitive"
+    }
+  ],
+  "frontend": [
+    {
+      "id": "frontend-1-list-states",
+      "png": "frontend-1-list-states.png",
+      "title": "List page: API rows, empty state, error retry, pagination",
+      "testFile": "src/routes/cylinders/cylinders-list.test.tsx",
+      "layout": "list",
+      "scenes": [
+        {
+          "scene": "listObrien",
+          "role": "hero",
+          "caption": "List with search o'brien: 3 matching rows, filtered from 87 records"
+        },
+        {
+          "scene": "noResults",
+          "role": "duo",
+          "caption": "Empty state: Tidak ada hasil, Reset filter, total 0"
+        },
+        {
+          "scene": "error",
+          "role": "duo",
+          "caption": "Error state: Gagal memuat data, Coba lagi"
+        }
+      ]
+    },
+    {
+      "id": "frontend-2-status-change",
+      "png": "frontend-2-status-change.png",
+      "title": "Status change: allowed transitions, customer rule, confirmation",
+      "testFile": "src/components/cylinders/status-change-dialog.test.tsx",
+      "layout": "dialog",
+      "scenes": [
+        {
+          "scene": "statusOptions",
+          "role": "duo",
+          "caption": "Filled offers Delivered, In Maintenance, Retired"
+        },
+        {
+          "scene": "statusConfirm",
+          "role": "duo",
+          "caption": "Confirmation step before the status API call"
+        }
+      ]
+    }
+  ]
+}

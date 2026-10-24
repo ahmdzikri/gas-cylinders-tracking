@@ -1,0 +1,15 @@
+name: gas-cylinders
+
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - app-data:/app/data
+
+volumes:
+  app-data:
+    name: gas-cylinders-data

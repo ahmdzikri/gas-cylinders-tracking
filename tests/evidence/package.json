@@ -1,0 +1,14 @@
+{
+  "name": "samator-test-evidence",
+  "private": true,
+  "type": "module",
+  "description": "Regenerates the submission evidence images defined in evidence.config.json.",
+  "scripts": {
+    "capture": "node capture-app.mjs",
+    "render:backend": "node render-backend.mjs",
+    "compose:frontend": "node compose-frontend.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.49.1"
+  }
+}

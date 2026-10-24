@@ -1,0 +1,165 @@
+{
+  "jsPlugins": ["@shadcn/lint"],
+  "categories": {
+    "correctness": "off"
+  },
+  "settings": {
+    "shadcn": {
+      "note": "See AGENTS.md for design rules and approved exceptions."
+    }
+  },
+  "ignorePatterns": [
+    "src/routeTree.gen.ts",
+    "dist/**",
+    "playwright-report/**",
+    "test-results/**"
+  ],
+  "rules": {
+    "shadcn/no-raw-colors": "error",
+    "shadcn/no-unknown-classes": "error",
+    "shadcn/require-static-classes": "error",
+    "shadcn/no-inline-styles": "error",
+    "shadcn/no-arbitrary-values": "error",
+    "shadcn/no-restyle": [
+      "error",
+      {
+        "allow": ["layout"],
+        "contracts": [
+          {
+            "pattern": "^Button$",
+            "allow": [
+              "layout",
+              "color",
+              "shape",
+              "w-full",
+              "mt-*",
+              "mb-*",
+              "mx-auto"
+            ]
+          },
+          {
+            "pattern": "^Badge$",
+            "allow": [
+              "layout",
+              "spacing",
+              "shape",
+              "color",
+              "tabular-nums",
+              "font-normal"
+            ]
+          },
+          {
+            "pattern": "^Card$",
+            "allow": [
+              "layout",
+              "spacing",
+              "color",
+              "shape",
+              "motion",
+              "effects"
+            ]
+          },
+          {
+            "pattern": "^CardHeader$",
+            "allow": ["layout", "spacing", "color"]
+          },
+          {
+            "pattern": "^CardTitle$",
+            "allow": ["layout", "color", "spacing", "leading-*"]
+          },
+          {
+            "pattern": "^CardDescription$",
+            "allow": ["layout", "color", "spacing", "tabular-nums"]
+          },
+          {
+            "pattern": "^CardContent$",
+            "allow": ["layout", "spacing", "typography", "color"]
+          },
+          {
+            "pattern": "^CardFooter$",
+            "allow": ["layout", "spacing", "shape", "color"]
+          },
+          {
+            "pattern": "^Label$",
+            "allow": ["layout", "color", "spacing", "font-normal"]
+          },
+          {
+            "pattern": "^Tabs(List|Trigger|Content)?$",
+            "allow": ["layout", "spacing", "typography", "color", "shape"]
+          },
+          {
+            "pattern": "^DialogDescription$",
+            "allow": ["layout", "typography", "color", "spacing"]
+          },
+          {
+            "pattern": "^Input$",
+            "allow": ["layout", "spacing", "color", "shape"]
+          },
+          {
+            "pattern": "^Progress$",
+            "allow": ["layout", "spacing", "color", "shape"]
+          },
+          {
+            "pattern": "^Avatar(Fallback)?$",
+            "allow": ["layout", "shape"]
+          },
+          {
+            "pattern": "^TableCell$",
+            "allow": [
+              "layout",
+              "color",
+              "shape",
+              "spacing",
+              "motion",
+              "effects"
+            ]
+          },
+          {
+            "pattern": "^TableHead$",
+            "allow": [
+              "layout",
+              "color",
+              "shape",
+              "spacing",
+              "motion",
+              "effects"
+            ]
+          },
+          {
+            "pattern": "^DropdownMenu(Label|Group|Content|CheckboxItem|RadioItem|SubTrigger|Item)$",
+            "allow": ["layout", "spacing", "typography", "shape"]
+          },
+          {
+            "pattern": "^DialogFooter$",
+            "allow": ["layout", "spacing"]
+          },
+          {
+            "pattern": "^PopoverContent$",
+            "allow": ["layout", "spacing"]
+          },
+          {
+            "pattern": "^ScrollArea$",
+            "allow": ["layout", "spacing"]
+          },
+          {
+            "pattern": "^SidebarMenuButton$",
+            "allow": ["layout", "color"]
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/components/ui/**"],
+      "rules": {
+        "shadcn/no-raw-colors": "off",
+        "shadcn/no-unknown-classes": "off",
+        "shadcn/require-static-classes": "off",
+        "shadcn/no-inline-styles": "off",
+        "shadcn/no-arbitrary-values": "off",
+        "shadcn/no-restyle": "off"
+      }
+    }
+  ]
+}
