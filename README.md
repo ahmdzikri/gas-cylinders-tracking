@@ -11,7 +11,8 @@ Internal web app for tracking the lifecycle of Samator gas cylinders
 ```
 backend/     GasCylinders.Api (Web API) + GasCylinders.Api.Tests (xUnit)
 web/         React SPA
-infra/       Dockerfile (single image: API serves the built SPA) + docker-compose.yml
+Dockerfile   single image: API serves the built SPA
+infra/       docker-compose.yml
 docs/        data.json, test-evidence/ (screenshots + commands)
 global.json  pins the .NET 8 SDK
 ```

@@ -1,5 +1,5 @@
 # Single image: React SPA (bun + Vite) served by the ASP.NET Core 8 API.
-# Build context = repo root:  docker build -f infra/Dockerfile -t gas-cylinders .
+# Build context = repo root:  docker build -t gas-cylinders .
 
 # ---- 1. Frontend ----
 FROM oven/bun:1 AS web
